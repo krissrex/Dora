@@ -5,19 +5,25 @@
 #include "ZumoBuzzer.h"
 #include "ZumoMotors.h"
 #include "ZumoReflectanceSensorArray.h"
+#include "test.h"
+
 
 
 #define MAX_SPEED 400
-#define SPEED 200
+#define SPEED 400
 
 
 Pushbutton zumo_button(ZUMO_BUTTON);
 ZumoMotors motors;
+Test test(10);
 
 
 void setup(){
-	zumo_button.waitForButton();
-	motors.setSpeeds(-SPEED, SPEED);
+	Serial.begin(9600);
+	//zumo_button.waitForButton();
+	//long time = millis();
+	test.doTest();
+	
 }
 
 void loop(){
