@@ -67,7 +67,12 @@ unsigned long Motion::update()
   
 void Motion::turnWithSpeed(Direction d, float factor, int speed, unsigned long time)
   {
-    factor=factor>1?1:factor; // For å unngå at den får fortere enn det andre hjulet
+    if (factor > 1){
+        factor = 1;
+    } else if (factor < -1){
+        factor = -1;
+    }
+
     switch(d)
       {
         case RIGHT:
