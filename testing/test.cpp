@@ -1,10 +1,9 @@
 #include "test.h"
 #include "Arduino.h"
 
-Test::Test(int a){
-	Serial.println("Constructor");
+Test::Test(){
 }
 
 void Test::doTest(){
-	Serial.println("Test123");
+	Serial.println("Test");
 }
