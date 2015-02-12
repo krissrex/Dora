@@ -6,7 +6,7 @@
 class Test
 {
 public:
-	Test(int a);
+	Test();
 	void doTest();
 };
 
