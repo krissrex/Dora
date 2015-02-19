@@ -41,18 +41,18 @@ Dora the explorer!
 
 > \# er metode, > er tilstand.  
 
-**>Start**
+**>Start**  
     Hvis knapp:
     >Kalibrer
 
-**>Kalibrer**
+**>Kalibrer**  
     begin: Roter litt
     Kalibrer sensor
     Loop x ganger fra 'begin'
     Hvis knapp:
         >Søk
 
-**Søk**
+**Søk**  
     Les inn sensor
     Tolk data
     Hvis ikke funnet:
@@ -64,5 +64,4 @@ Dora the explorer!
         >Funnet
     Loop uendelig fra 'begin'
 
-**Funnet**
-    
+**Funnet**  
