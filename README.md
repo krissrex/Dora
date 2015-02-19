@@ -43,12 +43,14 @@ Dora the explorer!
 
 **>Start**  
 ```
+	Sett fart 0
     Hvis knapp:
     >Kalibrer
 ```
 
 **>Kalibrer**  
 ```
+Sett fart 0
 begin: Roter litt
 Kalibrer sensor
 Loop x ganger fra 'begin'
@@ -58,14 +60,11 @@ Hvis knapp:
 
 **>Søk**  
 ```
-Les inn sensor
+Sett fart 0
+begin: Les inn sensor
 Tolk data
 Hvis linje funnet:
 	>Unnamanøver
-Hvis ikke funnet:
-    #Roter
-begin: Les inn sensor
-Tolk data
 Hvis funnet:
     Stop rotasjon
     >Funnet
@@ -74,7 +73,7 @@ Loop uendelig fra 'begin'
 
 **>Funnet**  
 ```
-Kjør frem
+Sett fart frem
 Les inn sensor
 Hvis linje oppdaget:
 	>Rygger
@@ -94,7 +93,7 @@ Vent 'ryggetid'
 ```
 Les inn sensor
 Finn siden linjen er nermest
-Rygg bakover
+Rygg bakover, størst fart bakover på siden som linjen er på
 ```
 
 **#Roter**
