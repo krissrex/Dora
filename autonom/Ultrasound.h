@@ -7,8 +7,8 @@
 class Ultrasound
 {
 private:
-int echo,trigger;
-NewPing sonar;
+uint8_t echo,trigger;
+NewPing* sonar;
 
 public:
 Ultrasound();
