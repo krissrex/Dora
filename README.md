@@ -42,30 +42,67 @@ Dora the explorer!
 > \# er metode, > er tilstand.  
 
 **>Start**  
+```
     Hvis knapp:
     >Kalibrer
+```
 
 **>Kalibrer**  
 ```
-    begin: Roter litt
-    Kalibrer sensor
-    Loop x ganger fra 'begin'
-    Hvis knapp:
-        >Søk
+begin: Roter litt
+Kalibrer sensor
+Loop x ganger fra 'begin'
+Hvis knapp:
+    >Søk
 ```
 
-**Søk**  
+**>Søk**  
 ```
-    Les inn sensor
-    Tolk data
-    Hvis ikke funnet:
-        #Roter
-    begin: Les inn sensor
-    Tolk data
-    Hvis funnet:
-        Stop rotasjon
-        >Funnet
-    Loop uendelig fra 'begin'
+Les inn sensor
+Tolk data
+Hvis linje funnet:
+	>Unnamanøver
+Hvis ikke funnet:
+    #Roter
+begin: Les inn sensor
+Tolk data
+Hvis funnet:
+    Stop rotasjon
+    >Funnet
+Loop uendelig fra 'begin'
 ```
 
-**Funnet**  
+**>Funnet**  
+```
+Kjør frem
+Les inn sensor
+Hvis linje oppdaget:
+	>Rygger
+Hvis mistet:
+	>Søk
+Juster retning
+```
+
+**>Rygger**  
+```
+Sett fart bakover
+Vent 'ryggetid'
+>Søk
+```
+
+**>Unnamanøver**  
+```
+Les inn sensor
+Finn siden linjen er nermest
+Rygg bakover
+```
+
+**#Roter**
+```
+Hvis bil er sett tidligere:
+	sett 'retinng' til den siden bilen ble sett
+Ellers:
+	sett retning 'høyre'
+Start rotering i 'retning'
+>Søk
+```
