@@ -19,3 +19,18 @@ Dora the explorer!
 
 ### Dytting 
 400 gir litt hopping, men funker greit
+
+
+
+
+# Tilstander og pseudokode
+
+| Tilstand    | Input                             |
+|-------------|-----------------------------------|
+| Start       | Knapp                             |
+| Kalibrer    | knapp                             |
+| Søk         | funnet, ikke funnet, linje funnet |
+| Funnet      | mistet, linje funnet              |
+| Unnamanøver | tid, linje funnet                 |  
+
+<img src="img/tilstandsdiagram.jpg" />
