@@ -15,29 +15,38 @@ usSensor2.setup(5,6);
 }
 void Dora::loop()
 {
-  for(;;){
-
+  for(;;) //Infite for loop master race 
+  {
     switch (state)
       {
+        case START:
+          start();
+          break;
+        case CALIBRATE:
+          calibrate();
+          break;
         case SEARCH:
           search();
-          
-          
           break;
         case FOUND:
+          found();
           break;
         case DODGE:
+          dodge();
+          break;
+        case DODGE:
+          dodge();
           break;
         default:
         break;
       }
-      
-      
 
-    Serial.print(usSensor1.getDistance());
-    Serial.print("     ");
-    Serial.println(usSensor2.getDistance());
-    motionJobRemaining=motion.update();
+      //Debug
+      Serial.print(usSensor1.getDistance());
+      Serial.print("     ");
+      Serial.println(usSensor2.getDistance());
+
+      motionJobRemaining=motion.update(); //No idea. spør mathias
     }
 }
 
