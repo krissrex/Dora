@@ -16,7 +16,20 @@ usSensor2.setup(5,6);
 void Dora::loop()
 {for(;;){
 
-  switch state{}
+switch (state)
+  {
+    case SEARCH:
+      unsigned int usSensor1Ping = usSensor1.getDistance();
+      unsigned int usSensor2Ping = usSensor2.getDistance();
+      
+      
+      break;
+    case FOUND:
+      break;
+    case DODGE:
+      break;
+    
+  }
   
   
 
