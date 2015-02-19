@@ -1,5 +1,8 @@
 #include "Ultrasound.h"
 
+Ultrasound::Ultrasound()
+{}
+
 void Ultrasound::setup(int echo, int trigger)
 {
 
