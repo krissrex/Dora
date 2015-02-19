@@ -8,7 +8,8 @@ class Dora
 private:
 Motion motion;
 unsigned long motionJobRemaining;
-Ultrasound usSensor1;
+Ultrasound usSensor1,usSensor2;
+void clean();
 
 public:
 Dora();

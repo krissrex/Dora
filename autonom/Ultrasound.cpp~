@@ -2,7 +2,7 @@
 
 Ultrasound::Ultrasound()
 {
-  
+  sonar= new NewPing(trigger, echo,200);
 }
 
 void Ultrasound::setup(uint8_t echo, uint8_t trigger)
@@ -10,18 +10,14 @@ void Ultrasound::setup(uint8_t echo, uint8_t trigger)
 
 this->echo=echo;
 this->trigger=trigger;
-sonar=new NewPing(trigger, echo,150);
+//sonar= NewPing(trigger, echo,200);
 
 }
 
 unsigned int Ultrasound::getDistance()
 {
-unsigned dist = sonar->ping();
-return (dist<20||dist>3000)?0:dist;
+//return this->sonar->ping();
 }
 
 
-void Ultrasound::clean()
-{
-delete sonar;
-}
+

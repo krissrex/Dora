@@ -12,6 +12,7 @@
 Dora doraTheExplorer;
 
 void setup(){
+Serial.begin(9600);
 doraTheExplorer.init();
 }
 
