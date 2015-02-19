@@ -21,9 +21,11 @@ Dora the explorer!
 400 gir litt hopping, men funker greit
 
 
-
+--------------------
 
 # Tilstander og pseudokode
+
+### Tilstander  
 
 | Tilstand    | Input                             |
 |-------------|-----------------------------------|
@@ -34,3 +36,33 @@ Dora the explorer!
 | Unnamanøver | tid, linje funnet                 |  
 
 <img src="img/tilstandsdiagram.jpg" />
+
+### Pseudokode  
+
+> \# er metode, > er tilstand.  
+
+**>Start**
+    Hvis knapp:
+    >Kalibrer
+
+**>Kalibrer**
+    begin: Roter litt
+    Kalibrer sensor
+    Loop x ganger fra 'begin'
+    Hvis knapp:
+        >Søk
+
+**Søk**
+    Les inn sensor
+    Tolk data
+    Hvis ikke funnet:
+        #Roter
+    begin: Les inn sensor
+    Tolk data
+    Hvis funnet:
+        Stop rotasjon
+        >Funnet
+    Loop uendelig fra 'begin'
+
+**Funnet**
+    
