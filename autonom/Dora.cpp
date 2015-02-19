@@ -4,20 +4,25 @@ Dora::Dora(){}
 
 void Dora::init()
 {
+state=START;
 motionJobRemaining=0;
 motion= Motion();
-motion.turnWithSpeed(RIGHT,0.5,350,10);
-//usSensor1 = Ultrasound();
-usSensor1.setup(2,3);
-usSensor1.setup(4,5);
+//motion.turnWithSpeed(RIGHT,0.7,400,10000);
+usSensor1.setup(3,4);
+usSensor2.setup(5,6);
 
 
 }
 void Dora::loop()
 {for(;;){
 
+  switch state{}
+  
+  
 
-Serial.println(usSensor1.getDistance());
+Serial.print(usSensor1.getDistance());
+Serial.print("     ");
+Serial.println(usSensor2.getDistance());
 motionJobRemaining=motion.update();
 }
 
