@@ -10,6 +10,7 @@ private:
 uint8_t echo,trigger;
 NewPing *sonar; // Arduino krever at den allokeres dynamisk av en eller annen grunn
 
+
 public:
 Ultrasound();
 void setup(uint8_t echo, uint8_t trigger);

@@ -3,6 +3,9 @@
 #include "Arduino.h"
 #include "Motion.h"
 #include "Ultrasound.h"
+#include "state.h"
+
+
 class Dora
 {
 private:
@@ -10,6 +13,7 @@ Motion motion;
 unsigned long motionJobRemaining;
 Ultrasound usSensor1,usSensor2;
 void clean();
+STATE state;
 
 public:
 Dora();

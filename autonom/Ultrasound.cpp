@@ -10,8 +10,7 @@ void Ultrasound::setup(uint8_t echo, uint8_t trigger)
 
 this->echo=echo;
 this->trigger=trigger;
-sonar=new NewPing(trigger, echo,200);
-
+sonar=new NewPing(trigger, echo,150);
 }
 
 unsigned int Ultrasound::getDistance()
