@@ -46,13 +46,16 @@ Dora the explorer!
     >Kalibrer
 
 **>Kalibrer**  
+```
     begin: Roter litt
     Kalibrer sensor
     Loop x ganger fra 'begin'
     Hvis knapp:
         >Søk
+```
 
 **Søk**  
+```
     Les inn sensor
     Tolk data
     Hvis ikke funnet:
@@ -63,5 +66,6 @@ Dora the explorer!
         Stop rotasjon
         >Funnet
     Loop uendelig fra 'begin'
+```
 
 **Funnet**  
