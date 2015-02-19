@@ -11,7 +11,7 @@ class Dora
 private:
 Motion motion;
 unsigned long motionJobRemaining;
-Ultrasound usSensor1,usSensor2;
+Ultrasound usSensor1, usSensor2;
 void clean();
 STATE state;
 
@@ -21,9 +21,12 @@ Dora();
 void init();
 void loop();
 
+void start();
 void search();
 void calibrate();
-
+void found();
+void back();
+void dodge();
 };
 
 #endif
