@@ -1,6 +1,7 @@
 #ifndef MOTION_H
 #define MOTION_H
 #include "Arduino.h"
+#include "State.h"
 #include <ZumoMotors.h>
 
 enum Direction {RIGHT, LEFT};

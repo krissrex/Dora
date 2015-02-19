@@ -3,7 +3,7 @@
 #include "Arduino.h"
 #include "Motion.h"
 #include "Ultrasound.h"
-#include "state.h"
+#include "State.h"
 
 
 class Dora
