@@ -14,32 +14,42 @@ usSensor2.setup(5,6);
 
 }
 void Dora::loop()
-{for(;;){
-
-  unsigned int usSensor1Ping=0;
-switch (state)
+{
+  for(;;) //Infite for loop master race 
   {
-    case SEARCH:
-      usSensor1Ping = usSensor1.getDistance();
-      //unsigned int usSensor2Ping = usSensor2.getDistance();
-      
-      break;
-    case FOUND:
-      break;
-    case DODGE:
-      break;
-    
-  };
-  
-  
+    switch (state)
+      {
+        case START:
+          start();
+          break;
+        case CALIBRATE:
+          calibrate();
+          break;
+        case SEARCH:
+          search();
+          break;
+        case FOUND:
+          found();
+          break;
+        case DODGE:
+          dodge();
+          break;
+        case DODGE:
+          dodge();
+          break;
+        default:
+        break;
+      }
 
-Serial.print(usSensor1.getDistance());
-Serial.print("     ");
-Serial.println(usSensor2.getDistance());
-motionJobRemaining=motion.update();
+      //Debug
+      Serial.print(usSensor1.getDistance());
+      Serial.print("     ");
+      Serial.println(usSensor2.getDistance());
+
+      motionJobRemaining=motion.update(); //No idea. spør mathias
+    }
 }
 
-}
 void Dora::clean()
 {
   usSensor1.clean();
