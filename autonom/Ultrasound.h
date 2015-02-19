@@ -12,7 +12,7 @@ NewPing sonar;
 
 public:
 Ultrasound();
-void setup(int echo, int trigger);
+void setup(uint8_t echo, uint8_t trigger);
 unsigned int getDistance();
 
 };

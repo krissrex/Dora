@@ -3,7 +3,7 @@
 Ultrasound::Ultrasound()
 {}
 
-void Ultrasound::setup(int echo, int trigger)
+void Ultrasound::setup(uint8_t echo, uint8_t trigger)
 {
 
 this->echo=echo;
