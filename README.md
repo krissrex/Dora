@@ -53,9 +53,9 @@ Dora the explorer!
 
 **>Start**  
 ```
-	Sett fart 0
-    Hvis knapp:
-    >Kalibrer
+Sett fart 0
+Hvis knapp:
+>Kalibrer
 ```
 
 **>Kalibrer**  
