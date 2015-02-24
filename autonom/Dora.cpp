@@ -9,6 +9,7 @@ void Dora::init()
 {
   state = START;
   motionJobRemaining = 0;
+  sensorArray.init();
   
   /*motion = Motion();
   //motion.turnWithSpeed(RIGHT,0.7,400,10000);
