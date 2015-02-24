@@ -20,3 +20,7 @@ unsigned int Ultrasound::getDistance()
 	lastDistance = (dist<20||dist>3000)?0:dist; // Lagrer den så den kan henstes senere også, for sammenligning elns.
 	return lastDistance;
 }
+
+unsigned int Ultrasound::getLastDistance(){
+	return lastDistance;
+}
