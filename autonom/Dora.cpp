@@ -1,17 +1,18 @@
 #include "Dora.h"
 
-Dora::Dora(){}
+Dora::Dora() : zumoButton(12), motion(), sensorArray(){}
 
 void Dora::init()
 {
-state=START;
-motionJobRemaining=0;
-motion= Motion();
-//motion.turnWithSpeed(RIGHT,0.7,400,10000);
-usSensor1.setup(3,4);
-usSensor2.setup(5,6);
-
-
+  state = START;
+  motionJobRemaining = 0;
+  
+  /*motion = Motion();
+  //motion.turnWithSpeed(RIGHT,0.7,400,10000);
+  usSensor1.setup(3,4);
+  usSensor2.setup(5,6);
+   // pin 12, pull up enabled, default high
+  sensorArray = ZumoReflectanceSensorArray();*/
 }
 void Dora::loop()
 {
@@ -34,9 +35,6 @@ void Dora::loop()
         case DODGE:
           dodge();
           break;
-        case DODGE:
-          dodge();
-          break;
         default:
         break;
       }
@@ -46,11 +44,12 @@ void Dora::loop()
       Serial.print("     ");
       Serial.println(usSensor2.getDistance());
 
-      motionJobRemaining=motion.update(); //No idea. spør mathias
+      motionJobRemaining = motion.update(); //Gir ut tiden som er igjen før en motion (svinging) er ferdig
     }
 }
 
 void Dora::clean()
 {
   usSensor1.clean();
+  usSensor2.clean();
 }

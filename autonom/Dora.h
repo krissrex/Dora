@@ -1,32 +1,44 @@
 #ifndef DORA_H
 #define DORA_H
-#include "Arduino.h"
+
+//System libs:
+#include <Arduino.h>
+//Egne libs:
 #include "Motion.h"
 #include "Ultrasound.h"
 #include "State.h"
-
+//PLab libs:
+#include "Pushbutton.h"
+#include "QTRSensors.h"
+#include "ZumoReflectanceSensorArray.h"
 
 class Dora
 {
 private:
-Motion motion;
-unsigned long motionJobRemaining;
-Ultrasound usSensor1, usSensor2;
-void clean();
-STATE state;
+	Motion 		motion;
+	Pushbutton 	zumoButton;
+	Ultrasound 	usSensor1, 	usSensor2;
+	STATE 		state;
+	ZumoReflectanceSensorArray sensorArray;
 
+	unsigned long motionJobRemaining;
+	void clean();
+
+	void autoCalibration();
+	void manualCalibration();
+	
 public:
-Dora();
+	Dora();
 
-void init();
-void loop();
+	void init();
+	void loop();
 
-void start();
-void search();
-void calibrate();
-void found();
-void back();
-void dodge();
+	void start();
+	void search();
+	void calibrate();
+	void found();
+	void back();
+	void dodge();
 };
 
 #endif

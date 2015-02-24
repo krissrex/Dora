@@ -28,13 +28,13 @@ Dora the explorer!
 
 ### Tilstander  
 
-| Tilstand    | Input                             |
-|-------------|-----------------------------------|
-| Start       | Knapp                             |
-| Kalibrer    | knapp                             |
-| Søk         | funnet, ikke funnet, linje funnet |
-| Funnet      | mistet, linje funnet              |
-| Unnamanøver | tid, linje funnet                 |  
+| Tilstand    | Input                             | Autonom | Remote |
+|-------------|-----------------------------------|---------|--------|
+| Start       | Knapp                             | :white_check_mark: | :white_check_mark:|
+| Kalibrer    | knapp                             | | |
+| Søk         | funnet, ikke funnet, linje funnet | | |
+| Funnet      | mistet, linje funnet              | | |
+| Unnamanøver | tid, linje funnet                 | | |
 
 <img src="img/tilstandsdiagram.jpg" />
 
