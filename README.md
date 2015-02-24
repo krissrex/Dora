@@ -61,7 +61,8 @@ Dora the explorer!
 **>Kalibrer**  
 ```
 Sett fart 0
-begin: Roter litt
+begin:
+Roter litt
 Kalibrer sensor
 Loop x ganger fra 'begin'
 Hvis knapp:
