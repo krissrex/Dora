@@ -30,8 +30,8 @@ Dora the explorer!
 
 | Tilstand    | Input                             | Autonom | Remote |
 |-------------|-----------------------------------|---------|--------|
-| Start       | Knapp                             | :white_check_mark: | :white_check_mark:|
-| Kalibrer    | knapp                             | | |
+| Start       | Knapp                             | :white_check_mark: | |
+| Kalibrer    | knapp                             | :white_check_mark: | |
 | Søk         | funnet, ikke funnet, linje funnet | | |
 | Funnet      | mistet, linje funnet              | | |
 | Unnamanøver | tid, linje funnet                 | | |
