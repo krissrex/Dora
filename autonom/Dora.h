@@ -21,12 +21,12 @@ private:
 	STATE 		state;
 	ZumoReflectanceSensorArray sensorArray;
 
+
 	unsigned long motionJobRemaining;
-	void clean();
 
 	void autoCalibration();
 	void manualCalibration();
-	
+
 public:
 	Dora();
 
