@@ -71,13 +71,15 @@ Hvis knapp:
 **>Søk**  
 ```
 Sett fart 0
-begin: Les inn sensor
+begin:
+Les inn sensor
 Tolk data
 Hvis linje funnet:
 	>Unnamanøver
 Hvis funnet:
     Stop rotasjon
     >Funnet
+#Roter
 Loop uendelig fra 'begin'
 ```
 
