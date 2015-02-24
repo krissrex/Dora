@@ -23,7 +23,16 @@ Dora the explorer!
 
 
 --------------------
+# Pins
+| Pinne | Navn                   |
+|-------|------------------------|
+|  3    | Ultrasound-1 echo      |
+|  4    | Ultrasound-1 trigger   |
+|  5    | Ultrasound-2 echo      |
+|  6    | Ultrasound-2 trigger   |
+| 12    | Zumo button            |
 
+--------------------
 # Tilstander og pseudokode
 
 ### Tilstander  
