@@ -45,11 +45,17 @@ void Dora::found()
 
   if(lastSeen==RIGHT)
   {
-    motion.turnWithSpeed(lastSeen, (float)pow(right/left, 4), TURNSPEED,TIMEOUT);  
+    motion.turnWithSpeed(lastSeen, setSail(right,left), TURNSPEED,TIMEOUT);  
   }
   else
   {
-    motion.turnWithSpeed(lastSeen,(float)pow(left/right, 4), TURNSPEED,TIMEOUT);
+    motion.turnWithSpeed(lastSeen,setSail(left,right), TURNSPEED,TIMEOUT);
   }
 
+}
+
+float Dora::setSail(int a, int b)
+{
+ float factor=(float)pow(a/b, 4)
+  return factor>0.95?1:factor;
 }
