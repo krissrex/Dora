@@ -25,6 +25,8 @@ private:
 	unsigned int sensorValues[6];
 	unsigned long motionJobRemaining;
 
+	unsigned long lastUpdated; //For found
+
 	void autoCalibration();
 	void manualCalibration();
 

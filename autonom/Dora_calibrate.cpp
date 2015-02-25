@@ -10,7 +10,7 @@ void Dora::calibrate(){
 	//Det kan hende at auto ikke kommer over alle områdene med sensoren sin.
 
 	zumoButton.waitForButton();
-	state = FOUND;//SEARCH;
+	state = SEARCH;//SEARCH;
 }
 
 

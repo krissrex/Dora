@@ -2,7 +2,7 @@
 
 
 void Dora::search(){
-	motion.setSpeeds(0,0); //Stop fart
+	motion.abortOperation(); //Stop fart
 	//begin:
 	while (true){
 		unsigned int left = usSensor1.getDistance(); //bruker _ fordi dist1 ser ut som distl
@@ -16,7 +16,11 @@ void Dora::search(){
 		if (left > 0 || right > 0){
 			//Funnet
 			state = FOUND;
+			motion.setSpeeds(400, 400);
+			return;
 		}
+		
+		motion.turnWithSpeed(lastSeen, -1, 400, 999999); //(Direction d, float factor, int speed, unsigned long time)
 		//debug(sensorValues);
 	}
 }
