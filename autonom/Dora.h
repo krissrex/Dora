@@ -32,6 +32,7 @@ private:
 
 	boolean lineDetected();
 	void setLastSeen(int left, int right);
+        float setSail(int a, int b);
 
 public:
 	Dora();
