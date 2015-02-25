@@ -12,9 +12,9 @@ void Dora::dodge()
 
 		if (left != 0 || right != 0)
 		{
-			state = FOUND;
+			//state = FOUND;
 			//motion.setSpeeds(400, 400);
-			return;
+			//return;
 		}
 
 		Direction dir = lastSeen;

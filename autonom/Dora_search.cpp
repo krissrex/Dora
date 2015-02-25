@@ -15,6 +15,9 @@ void Dora::debug(){
 		Serial.print(left);
 		Serial.print("\t");
 		Serial.print(right);
+		Serial.print("\t");
+		Serial.print((lastSeen==LEFT)?"Left":"Right");
+
 		Serial.print("\n");
 }
 

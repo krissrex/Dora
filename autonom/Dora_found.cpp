@@ -8,11 +8,44 @@ void Dora::found()
 {
   //motion.update();
 
-  unsigned int prevLeft = usSensor1.getLastDistance();
-  unsigned int prefRight = usSensor2.getLastDistance();
-
   unsigned int left = usSensor1.getDistance();
   unsigned int right = usSensor2.getDistance();
+
+  if (left == 0 && prevLeft != 0){
+    nullCountLeft++;
+    if (nullCountLeft < 10){
+      left = prevLeft;
+    }
+    else
+    {
+      nullCountLeft = 0;
+      nullCountRight = 0; // ??
+      prevLeft = 0;
+    }
+  } 
+  else
+  {
+    prevLeft = left;
+  }
+
+
+  if (right == 0 && prevRight != 0){
+    nullCountRight++;
+    if (nullCountRight < 10)
+    {
+      right = prevRight;
+    } 
+    else
+    {
+     nullCountRight = 0;
+     nullCountLeft = 0; //??
+     prevRight = 0;
+    }
+  } else {
+    prevRight = right;
+  }
+
+  setLastSeen(left, right);
 
   sensorArray.readCalibrated(sensorValues); //int sensorValues[6]
   if (lineDetected())
@@ -21,7 +54,6 @@ void Dora::found()
     return;
   }
 
-  setLastSeen(left, right);
   if (left==0 && right == 0)
   {
     state = SEARCH;

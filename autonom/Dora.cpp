@@ -1,8 +1,9 @@
 #include "Dora.h"
 
 #define LINE 100
+#define DEBUG true
 
-Dora::Dora() : zumoButton(12), motion(), sensorArray(), usSensor1(3,4), usSensor2(5,6), lastSeen(RIGHT)
+Dora::Dora() : zumoButton(12), motion(), sensorArray(), usSensor1(3,4), usSensor2(5,6), lastSeen(RIGHT), nullCountLeft(0), nullCountRight(0)
 {
 
 }
@@ -45,6 +46,8 @@ void Dora::loop()
         break;
       }
 
+      if (DEBUG){debug();}
+      
       motion.update(); //Gir ut tiden som er igjen før en motion (svinging) er ferdig
     }
 }
@@ -72,11 +75,11 @@ void Dora::setLastSeen(int left, int right){
     return;
   }
 
-  if(left==0 || (left>right))
+  if(right != 0 && left == 0)
   {
     lastSeen=RIGHT;
   }
-  else 
+  else if (left != 0 && right == 0)
   {
     lastSeen=LEFT;
   }

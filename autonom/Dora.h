@@ -21,7 +21,11 @@ private:
 	STATE 		state;
 	ZumoReflectanceSensorArray sensorArray;
     Direction lastSeen;
-    int nullCount; //Teller 0 i found
+
+    int nullCountLeft; //Teller 0 i found
+    int nullCountRight;
+    unsigned int prevLeft;
+    unsigned int prevRight;
 
 	unsigned int sensorValues[6];
 	unsigned long motionJobRemaining;
