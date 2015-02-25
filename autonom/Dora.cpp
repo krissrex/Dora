@@ -45,13 +45,7 @@ void Dora::loop()
         break;
       }
 
-      //Debug
-      Serial.print(usSensor1.getDistance());
-      Serial.print("     ");
-      Serial.print(usSensor2.getDistance());
-      Serial.print("\n");
-
-      motionJobRemaining = motion.update(); //Gir ut tiden som er igjen før en motion (svinging) er ferdig
+      motion.update(); //Gir ut tiden som er igjen før en motion (svinging) er ferdig
     }
 }
 
@@ -59,7 +53,7 @@ void Dora::loop()
 boolean Dora::lineDetected(){
   bool funnet = false;
   //sensor 0 og 5 funker ikke!
-  
+
   for (int i=1; i<5; i++){
     if (sensorValues[i] < LINE)
     {
@@ -69,4 +63,24 @@ boolean Dora::lineDetected(){
   }
 
   return funnet;
+}
+
+void Dora::setLastSeen(int left, int right){
+  Direction d;
+
+  if (left==0 && right== 0) {
+    return;
+  }
+
+
+  if(left==0 || (left>right))
+  {
+    d=RIGHT;
+  }
+  else 
+  {
+    d=LEFT;
+  }
+
+  lastSeen=d;
 }

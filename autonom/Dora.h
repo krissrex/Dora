@@ -31,6 +31,7 @@ private:
 	void manualCalibration();
 
 	boolean lineDetected();
+	void setLastSeen(int left, int right);
 
 public:
 	Dora();
