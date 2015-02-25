@@ -8,6 +8,8 @@ void Dora::search(){
 		unsigned int left = usSensor1.getDistance(); //bruker _ fordi dist1 ser ut som distl
 		unsigned int right = usSensor2.getDistance();
 		sensorArray.readCalibrated(sensorValues); //int sensorValues[6]
+		setLastSeen(left, right);
+
 		// sensor 0 og 5 funker ikke!
 		if (lineDetected()){
 			state = DODGE;
@@ -21,7 +23,7 @@ void Dora::search(){
 		}
 		
 		motion.turnWithSpeed(lastSeen, -1, 400, 999999); //(Direction d, float factor, int speed, unsigned long time)
-		//debug(sensorValues);
+		motion.update();
 	}
 }
 
