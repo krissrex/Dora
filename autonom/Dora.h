@@ -20,12 +20,15 @@ private:
 	Ultrasound 	usSensor1, 	usSensor2;
 	STATE 		state;
 	ZumoReflectanceSensorArray sensorArray;
+    Direction lastSeen;
 
-        Direction lastSeen;
+	unsigned int sensorValues[6];
 	unsigned long motionJobRemaining;
 
 	void autoCalibration();
 	void manualCalibration();
+
+	boolean lineDetected();
 
 public:
 	Dora();

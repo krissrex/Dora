@@ -3,10 +3,10 @@
 void Dora::calibrate(){
 	motion.setSpeeds(0,0);
 
-	//manualCalibration(); //Her må vi selv dra roboten over de mørkeste og lyseste områdene.
+	manualCalibration(); //Her må vi selv dra roboten over de mørkeste og lyseste områdene.
 	//Pass på at alle sensorene blir utsatt for mørkest og lysest verdi på bordet.
 
-	autoCalibration(); //Alternativ til manuel. Her vil roboten snurre rundt på egen hånd.
+	//autoCalibration(); //Alternativ til manuel. Her vil roboten snurre rundt på egen hånd.
 	//Det kan hende at auto ikke kommer over alle områdene med sensoren sin.
 
 	zumoButton.waitForButton();

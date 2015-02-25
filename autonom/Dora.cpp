@@ -9,6 +9,7 @@ void Dora::init()
 {
   state = START;
   motionJobRemaining = 0;
+  sensorArray.init();
   
   /*motion = Motion();
   //motion.turnWithSpeed(RIGHT,0.7,400,10000);
@@ -45,9 +46,14 @@ void Dora::loop()
       //Debug
       Serial.print(usSensor1.getDistance());
       Serial.print("     ");
-      Serial.println(usSensor2.getDistance());
+      Serial.print(usSensor2.getDistance());
+      Serial.print("\n");
 
       motionJobRemaining = motion.update(); //Gir ut tiden som er igjen før en motion (svinging) er ferdig
     }
 }
 
+
+boolean Dora::lineDetected(){
+  //Husk at banen er sort, og linjen hvit!
+}
