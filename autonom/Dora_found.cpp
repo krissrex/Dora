@@ -56,6 +56,9 @@ void Dora::found()
 
 float Dora::setSail(int a, int b)
 {
- float factor=(float)pow(a/b, 4)
-  return factor>0.95?1:factor;
+  if (b-a < 200){
+    return 1;
+  }
+
+  return (float)pow(a/b, 3);
 }

@@ -21,6 +21,7 @@ private:
 	STATE 		state;
 	ZumoReflectanceSensorArray sensorArray;
     Direction lastSeen;
+    int nullCount; //Teller 0 i found
 
 	unsigned int sensorValues[6];
 	unsigned long motionJobRemaining;
@@ -32,7 +33,9 @@ private:
 
 	boolean lineDetected();
 	void setLastSeen(int left, int right);
-        float setSail(int a, int b);
+    float setSail(int a, int b);
+
+    void debug();
 
 public:
 	Dora();

@@ -72,15 +72,12 @@ void Dora::setLastSeen(int left, int right){
     return;
   }
 
-
   if(left==0 || (left>right))
   {
-    d=RIGHT;
+    lastSeen=RIGHT;
   }
   else 
   {
-    d=LEFT;
+    lastSeen=LEFT;
   }
-
-  lastSeen=d;
 }
