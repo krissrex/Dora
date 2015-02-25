@@ -21,11 +21,13 @@ private:
 	STATE 		state;
 	ZumoReflectanceSensorArray sensorArray;
 
-
+	unsigned int sensorValues[6];
 	unsigned long motionJobRemaining;
 
 	void autoCalibration();
 	void manualCalibration();
+
+	boolean lineDetected();
 
 public:
 	Dora();
