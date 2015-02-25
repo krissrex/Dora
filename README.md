@@ -41,9 +41,9 @@ Dora the explorer!
 |-------------|-----------------------------------|---------|--------|
 | Start       | Knapp                             | :white_check_mark: | |
 | Kalibrer    | knapp                             | :white_check_mark: | |
-| Søk         | funnet, ikke funnet, linje funnet | | |
-| Funnet      | mistet, linje funnet              | | |
-| Unnamanøver | tid, linje funnet                 | | |
+| Søk         | funnet, ikke funnet, linje funnet | :white_check_mark: | |
+| Funnet      | mistet, linje funnet              | :white_check_mark: | |
+| Unnamanøver | tid, linje funnet                 | :white_check_mark: | |
 
 <img src="img/tilstandsdiagram.jpg" />
 
