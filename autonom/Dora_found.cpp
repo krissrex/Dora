@@ -1,7 +1,7 @@
 #include "Dora.h"
 
 #define TIMEOUT 10000
-#define TURNSPEED 150 
+#define TURNSPEED 400 
 void Dora::found()
 {
   usSensor1.getDistance();
@@ -16,7 +16,7 @@ void Dora::found()
   lastSeen=d;
 if(usSensor1.getLastDistance()==0||usSensor2.getLastDistance()==0))
 {
-motion.turnWithSpeed(d,0.5, TURNSPEED,TIMEOUT);
+motion.turnWithSpeed(d,0.4, TURNSPEED,TIMEOUT);
 return;
 }
 
