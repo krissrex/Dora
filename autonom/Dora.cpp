@@ -1,6 +1,6 @@
 #include "Dora.h"
 
-Dora::Dora() : zumoButton(12), motion(), sensorArray(), usSensor1(3,4), usSensor2(5,6)
+Dora::Dora() : zumoButton(12), motion(), sensorArray(), usSensor1(3,4), usSensor2(5,6), lastSeen(RIGHT)
 {
 
 }

@@ -21,7 +21,7 @@ private:
 	STATE 		state;
 	ZumoReflectanceSensorArray sensorArray;
 
-
+        Direction lastSeen;
 	unsigned long motionJobRemaining;
 
 	void autoCalibration();
