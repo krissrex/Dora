@@ -2,15 +2,21 @@
 
 
 void Dora::search(){
-	motion.setSpeeds(0,0); //set fart 0
+	motion.setSpeeds(0,0); //Stop fart
 	//begin:
 	while (true){
 		unsigned int left = usSensor1.getDistance(); //bruker _ fordi dist1 ser ut som distl
 		unsigned int right = usSensor2.getDistance();
 		sensorArray.readCalibrated(sensorValues); //int sensorValues[6]
 		// sensor 0 og 5 funker ikke!
-
-
+		if (lineDetected()){
+			state = DODGE;
+			return;
+		}
+		if (left > 0 || right > 0){
+			//Funnet
+			state = FOUND;
+		}
 		//debug(sensorValues);
 	}
 }
