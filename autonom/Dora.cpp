@@ -1,7 +1,7 @@
 #include "Dora.h"
 
 #define LINE 100
-#define DEBUG true
+#define DEBUG false
 
 Dora::Dora() : zumoButton(12), motion(), sensorArray(), usSensor1(3,4), usSensor2(5,6), lastSeen(RIGHT), nullCountLeft(0), nullCountRight(0)
 {
