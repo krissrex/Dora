@@ -1,5 +1,7 @@
 #include "Dora.h"
 
+#define LINE 100
+
 Dora::Dora() : zumoButton(12), motion(), sensorArray(), usSensor1(3,4), usSensor2(5,6), lastSeen(RIGHT)
 {
 
@@ -55,5 +57,16 @@ void Dora::loop()
 
 
 boolean Dora::lineDetected(){
-  //Husk at banen er sort, og linjen hvit!
+  bool funnet = false;
+  //sensor 0 og 5 funker ikke!
+  
+  for (int i=1; i<5; i++){
+    if (sensorValues[i] < LINE)
+    {
+      funnet = true;
+      break;
+    }
+  }
+
+  return funnet;
 }

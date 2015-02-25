@@ -6,11 +6,21 @@ void Dora::found()
 {
   motion.update();
 
-  usSensor1.getDistance();
-  usSensor2.getDistance();
+  unsigned int prevLeft = usSensor1.getLastDistance();
+  unsigned int prefRight = usSensor2.getLastDistance();
+
+  unsigned int left = usSensor1.getDistance();
+  unsigned int right = usSensor2.getDistance();
+
   Direction d;
 
-  if(usSensor1.getLastDistance()==0||(usSensor1.getLastDistance()>usSensor2.getLastDistance()))
+  if (left==0 && right== 0) {
+    //set state søk;
+    //return;
+  }
+
+
+  if(left==0 || (left>right))
   {
     d=RIGHT;
   }
@@ -21,19 +31,21 @@ void Dora::found()
 
   lastSeen=d;
 
-  if(usSensor1.getLastDistance()==0||usSensor2.getLastDistance()==0))
+  if(left==0 || right==0)
   {
-    motion.turnWithSpeed(d,0.4, TURNSPEED,TIMEOUT);
+    motion.turnWithSpeed(d, 0.9, TURNSPEED, TIMEOUT); //Høy avstand = høy faktor!
     return;
   }
 
+  
+
   if(d==RIGHT)
   {
-    motion.turnWithSpeed(d,usSensor2.getLastDistance()/usSensor1.getLastDistance(), TURNSPEED,TIMEOUT);  
+    motion.turnWithSpeed(d, (float)pow(right/left, 4), TURNSPEED,TIMEOUT);  
   }
   else
   {
-    motion.turnWithSpeed(d,usSensor1.getLastDistance()/usSensor2.getLastDistance(), TURNSPEED,TIMEOUT);
+    motion.turnWithSpeed(d,(float)pow(left/right, 4), TURNSPEED,TIMEOUT);
   }
 
 }
