@@ -1,6 +1,6 @@
 interface PLabBridge {
-  public int getWidth ();
-  public int getHeight ();
+  public int getWidth();
+  public int getHeight();
   public void write (String string);
   public void subscribeRead (PLabRead sub);
   public void subscribeError (PLabRead sub);
@@ -53,8 +53,8 @@ public class JoyStick {
   }
   
   public String getValues() {//Binary string: 0|0000|0|0000 => 1 = forward / 0 = backwards|Main speed values|1 = right / 0 = left|Turn values
-    String value = (relY >= 0) ? "0" + binPadding(Integer.toBinaryString(relY)) :  "1" + binPadding(Integer.toBinaryString(abs(relY)));//First position 1 means drive forwards
-    value += (relX >= 0) ? "1" + binPadding(Integer.toBinaryString(relX)) :  "0" + binPadding(Integer.toBinaryString(abs(relX)));//First position 1 
+    String value = (relY >= 0) ? "0" + binPadding(Integer.toBinaryString(relY)) :  "1" + binPadding(Integer.toBinaryString(abs(relY)));
+    value += (relX >= 0) ? "1" + binPadding(Integer.toBinaryString(relX)) :  "0" + binPadding(Integer.toBinaryString(abs(relX)));
     return value;
   }
   
@@ -102,37 +102,35 @@ public class JoyStick {
 }
 
 //Injects the javascript interface with the processing code
-void bindPLabBridge (PLabBridge bridge) {
+void bindPLabBridge(PLabBridge bridge) {
   // Bind the bridge to the instance
   pBridge = bridge;
   // Set the size based on window size
-  size (bridge.getWidth (), bridge.getHeight ());
-  update ();
+  size (bridge.getWidth(), bridge.getHeight());
+  update();
 }
 
 JoyStick joyStick;
 
 // setup() is only used for testing purposes
 void setup () {
-  // Create button 1, red
   joyStick = new JoyStick(200, 16, 5, 5);
-  // This size set will be overridden when bridge is bound
-  size (240, 360);
+  size(240, 360);
 }
 
 //Main loop
-void draw () {
+void draw() {
   // If the bridge is set, run update. This will send the states to the arduino
   if (pBridge != null) {
     update ();
   }
   update();//Should be removed when not testing
-  background (#303030);
+  background(#303030);
   joyStick.draw();
 }
 
-//update() checks if the buttons have changed and sends the info on to the framework
-void update () {
+//update() checks if the elements have changed and sends the info on to the framework
+void update() {
   if (joyStick.hasChanged()) {
     joyStick.resetChanged();
     if (pBridge != null) {
