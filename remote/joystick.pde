@@ -1,13 +1,13 @@
 interface PLabBridge {
   public int getWidth();
   public int getHeight();
-  public void write (String string);
+  public void write (short binString);
   public void subscribeRead (PLabRead sub);
   public void subscribeError (PLabRead sub);
   public void disconnect();
 }
 interface PLabRead {
-  public void read(String string);
+  public void read(short binString);
 }
 private PLabBridge pBridge;
 
@@ -52,28 +52,24 @@ public class JoyStick {
     return changed;
   }
   
-  public String getValues() {//Binary string: 0|0000|0|0000 => 1 = forward / 0 = backwards|Main speed values|1 = right / 0 = left|Turn values
-    String value = (relY >= 0) ? "0" + binPadding(Integer.toBinaryString(relY)) :  "1" + binPadding(Integer.toBinaryString(abs(relY)));
-    value += (relX >= 0) ? "1" + binPadding(Integer.toBinaryString(relX)) :  "0" + binPadding(Integer.toBinaryString(abs(relX)));
+  public short getValues() {//Binary string: 0|0000|0|0000 => forward (1) / backwards (0)|left speed|forward (1) / backwards (0)|right speed
+    int leftSpeed = getLeftSpeed();
+    int rightSpeed = getRightSpeed();
+    short value = (short)((leftSpeed >= 0) ? 1<<9|leftSpeed<<5 : abs(leftSpeed)<<5);
+    value |= (short)((rightSpeed >= 0) ? 1<<4|rightSpeed : 0<<4|abs(rightSpeed));
     return value;
   }
   
-  public int getMainSpeed() {//Testing only, will be replaced by getValues()
-    return relY;
+  public int getLeftSpeed() {//Public while testing
+    int halt = (relX < 0) ? abs(relX) : 0;
+    float step = (ratio * size / 2);
+    return (relY != 0) ? round((halt * (relY/step)) - relY) : relX;
   }
   
-  public int getLeftHalt() {//Testing only, will be replaced by getValues()
-    if (relX < 0) {
-      return abs(relX);
-    }
-    return 0;
-  }
-  
-  public int getRightHalt() {//Testing only, will be replaced by getValues()
-    if (relX > 0) {
-      return relX;
-    }
-    return 0;
+  public int getRightSpeed() {//Public while testing
+    int halt = (relX >= 0) ? relX : 0;
+    float step = (ratio * size / 2);
+    return (relY != 0) ? round((halt * (relY/step)) - relY) : -relX;
   }
   
   public void draw () {
@@ -114,7 +110,7 @@ JoyStick joyStick;
 
 // setup() is only used for testing purposes
 void setup () {
-  joyStick = new JoyStick(200, 16, 5, 5);
+  joyStick = new JoyStick(200, 30, 18, 70);
   size(240, 360);
 }
 
@@ -137,10 +133,9 @@ void update() {
       pBridge.write(joyStick.getValues());
     }
     //Testing data:
-    println(joyStick.getValues());
-    println(joyStick.getMainSpeed());
-    println(joyStick.getLeftHalt());
-    println(joyStick.getRightHalt());
+    println(Integer.toBinaryString(joyStick.getValues()));
+    println(joyStick.getLeftSpeed());
+    println(joyStick.getRightSpeed());
     println("-----------");
   }
 }
