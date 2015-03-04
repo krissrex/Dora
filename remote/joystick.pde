@@ -91,7 +91,7 @@ public class JoyStick {
     stroke(#006987);
     line(posX + (size / 2), posY, posX + (size / 2), posY + size);
     line(posX, posY + (size / 2), posX + size, posY + (size / 2));
-    ellipse((relX / ratio) + offsetX, (relY / ratio) + offsetY, 10, 10);
+    ellipse((relX / ratio) + offsetX, (relY / ratio) + offsetY, 20, 20);
   }
   
   private String binPadding(String binString) {
@@ -129,7 +129,7 @@ float toWorldY (float sy) {
 }
 
 void setup () {
-  joyStick = new JoyStick(300, 30, 30, 110);
+  joyStick = new JoyStick(250, 6, 30, 110);
   
   size (240, 360);
 }
