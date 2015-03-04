@@ -1,15 +1,22 @@
 interface PLabBridge {
-  public int getWidth();
-  public int getHeight();
-  public void write (short binString);
+  public int getWidth ();
+  public int getHeight ();
+  public void write (String string);
   public void subscribeRead (PLabRead sub);
   public void subscribeError (PLabRead sub);
   public void disconnect();
 }
 interface PLabRead {
-  public void read(short binString);
+  public void read(String string);
 }
 private PLabBridge pBridge;
+
+void bindPLabBridge (PLabBridge bridge) {
+  pBridge = bridge;
+  size (bridge.getWidth (), bridge.getHeight ());
+  
+  update ();
+}
 
 public class JoyStick {
   private float ratio;//Used to get the correct coordinate in joystick according to step size
@@ -52,13 +59,18 @@ public class JoyStick {
     return changed;
   }
   
-  public short getValues() {//Binary string: 0|0000|0|0000 => forward (1) / backwards (0)|left speed|forward (1) / backwards (0)|right speed
+  public String getValues() {//Binary string: 0|0000|0|0000 => 1 = forward / 0 = backwards|Main speed values|1 = right / 0 = left|Turn values
+    String value = getLeftSpeed()+":"+getRightSpeed();
+    return value;
+  }
+  
+  /*public String getValues() {//Binary string: 0|0000|0|0000 => forward (1) / backwards (0)|left speed|forward (1) / backwards (0)|right speed
     int leftSpeed = getLeftSpeed();
     int rightSpeed = getRightSpeed();
     short value = (short)((leftSpeed >= 0) ? 1<<9|leftSpeed<<5 : abs(leftSpeed)<<5);
     value |= (short)((rightSpeed >= 0) ? 1<<4|rightSpeed : 0<<4|abs(rightSpeed));
-    return value;
-  }
+    return "Test:Whoohoo";
+  }*/
   
   public int getLeftSpeed() {//Public while testing
     int halt = (relX < 0) ? abs(relX) : 0;
@@ -97,47 +109,38 @@ public class JoyStick {
   }
 }
 
-//Injects the javascript interface with the processing code
-void bindPLabBridge(PLabBridge bridge) {
-  // Bind the bridge to the instance
-  pBridge = bridge;
-  // Set the size based on window size
-  size (bridge.getWidth(), bridge.getHeight());
-  update();
-}
+int worldWidth = 200;
+int worldHeight = 400;
 
 JoyStick joyStick;
 
-// setup() is only used for testing purposes
-void setup () {
-  joyStick = new JoyStick(200, 30, 18, 70);
-  size(240, 360);
+float toScreenX (float x) {
+  return width * x / worldWidth;
+}
+float toScreenY (float y) {
+  return height * y / worldHeight;
 }
 
-//Main loop
-void draw() {
-  // If the bridge is set, run update. This will send the states to the arduino
+float toWorldX (float sx) {
+  return worldWidth * sx / width;
+}
+float toWorldY (float sy) {
+  return worldHeight * sy / height;
+}
+
+void setup () {
+  joyStick = new JoyStick(300, 30, 30, 110);
+  
+  size (240, 360);
+}
+
+void draw () {
   if (pBridge != null) {
     update ();
   }
-  update();//Should be removed when not testing
-  background(#303030);
+  background (#303030);
+  
   joyStick.draw();
-}
-
-//update() checks if the elements have changed and sends the info on to the framework
-void update() {
-  if (joyStick.hasChanged()) {
-    joyStick.resetChanged();
-    if (pBridge != null) {
-      pBridge.write(joyStick.getValues());
-    }
-    //Testing data:
-    println(Integer.toBinaryString(joyStick.getValues()));
-    println(joyStick.getLeftSpeed());
-    println(joyStick.getRightSpeed());
-    println("-----------");
-  }
 }
 
 void mouseDragged() {
@@ -150,4 +153,15 @@ void mousePressed() {
 
 void mouseReleased() {
   joyStick.reset();
+}
+
+void update () {
+  if (joyStick.hasChanged()) {
+    joyStick.resetChanged();
+    String val = joyStick.getValues();
+    //println(val);
+    if (pBridge != null) {
+      pBridge.write (val);
+    }
+  }
 }
