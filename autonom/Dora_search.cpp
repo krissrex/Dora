@@ -46,7 +46,7 @@ void Dora::search(){
 			return;
 		}
 		
-		motion.turnWithSpeed(lastSeen, -1, 400, 999999); //(Direction d, float factor, int speed, unsigned long time)
+		motion.turnWithSpeed(lastSeen, -1, 350, 999999); //(Direction d, float factor, int speed, unsigned long time)
 		motion.update();
 	}
 }
