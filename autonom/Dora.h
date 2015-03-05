@@ -51,7 +51,6 @@ public:
 	void search();
 	void calibrate();
 	void found();
-	void back();
 	void dodge();
 };
 
