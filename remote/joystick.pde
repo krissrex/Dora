@@ -59,7 +59,7 @@ public class JoyStick {
     return changed;
   }
   
-  public String getValues() {//Binary string: 0|0000|0|0000 => 1 = forward / 0 = backwards|Main speed values|1 = right / 0 = left|Turn values
+  public String getValues() {
     String value = getLeftSpeed()+":"+getRightSpeed();
     return value;
   }
@@ -94,10 +94,6 @@ public class JoyStick {
     ellipse((relX / ratio) + offsetX, (relY / ratio) + offsetY, 20, 20);
   }
   
-  private String binPadding(String binString) {
-    return String.format("%4s", binString).replace(' ', '0');
-  }
-  
   private int relativeX(float coord) {
     int newCoord = round((coord - offsetX) * ratio);
     return newCoord;
@@ -109,24 +105,7 @@ public class JoyStick {
   }
 }
 
-int worldWidth = 200;
-int worldHeight = 400;
-
 JoyStick joyStick;
-
-float toScreenX (float x) {
-  return width * x / worldWidth;
-}
-float toScreenY (float y) {
-  return height * y / worldHeight;
-}
-
-float toWorldX (float sx) {
-  return worldWidth * sx / width;
-}
-float toWorldY (float sy) {
-  return worldHeight * sy / height;
-}
 
 void setup () {
   joyStick = new JoyStick(250, 6, 30, 110);
