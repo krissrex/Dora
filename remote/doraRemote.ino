@@ -34,7 +34,7 @@ void readCommand (char *text) {
   int pos = newString.indexOf(':');
   int leftSpeed = newString.substring(0,pos).toInt();
   int rightSpeed = newString.substring(pos + 1).toInt();
-  PLab_motors.setSpeeds(leftSpeed*66.5, rightSpeed*66.5);
+  PLab_motors.setSpeeds(leftSpeed*133.2, rightSpeed*133.2);
   Serial.println(leftSpeed);
   Serial.println(rightSpeed);
 }
