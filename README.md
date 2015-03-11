@@ -1,6 +1,11 @@
 # Dora
 Dora the explorer!
 
+# Resultat etter kamp:
+* Kvartfinale i autonom
+ * 11 vinn, 2 tap i autonom? Ubeseiret frem til vi ble slått ut iallefall.
+* Åttendedelsfinale i fjernstyrt.
+
 # Taktikk 
 
 * Hastighet  
@@ -37,13 +42,13 @@ Dora the explorer!
 
 ### Tilstander  
 
-| Tilstand    | Input                             | Autonom | Remote |
-|-------------|-----------------------------------|---------|--------|
-| Start       | Knapp                             | :white_check_mark: | |
-| Kalibrer    | knapp                             | :white_check_mark: | |
-| Søk         | funnet, ikke funnet, linje funnet | :white_check_mark: | |
-| Funnet      | mistet, linje funnet              | :white_check_mark: | |
-| Unnamanøver | tid, linje funnet                 | :white_check_mark: | |
+| Tilstand    | Input                             | Autonom |
+|-------------|-----------------------------------|---------|
+| Start       | Knapp                             | :white_check_mark: |
+| Kalibrer    | knapp                             | :white_check_mark: |
+| Søk         | funnet, ikke funnet, linje funnet | :white_check_mark: |
+| Funnet      | mistet, linje funnet              | :white_check_mark: |
+| Unnamanøver | tid, linje funnet                 | :white_check_mark: |
 
 <img src="img/tilstandsdiagram.jpg" />
 
