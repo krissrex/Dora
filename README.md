@@ -1,6 +1,11 @@
 # Dora
 Dora the explorer!
 
+## Beskrivelse (Description)  
+> En Arduino Uno på en Zumo-robot, for å konkurrere på en sort skive med hvite kanter.  
+
+> English: An Arduino Uno on a Zumo robot, to compete on a black disc with white trim/edge.
+
 # Resultat etter kamp:
 * Kvartfinale i autonom
  * 11 vinn, 2 tap i autonom? Ubeseiret frem til vi ble slått ut iallefall.
